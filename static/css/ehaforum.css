@@ -24,7 +24,7 @@ pre, textarea, blockquote {
     right: 50px;
     bottom: 50px;
     z-index: 9999;
-    background: url(/static/img/arrow.png) no-repeat left top;
+    background: url(https://cdn.jsdelivr.net/gh/xyuansec/4nmb_com@master/static/img/arrow.png) no-repeat left top;
 }
 
 .maxwidth {
