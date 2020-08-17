@@ -46,6 +46,14 @@ $(document).ready(function () {
             fastcomment($(this).attr("data-id"), $(this).val())
         }
     });
+    $(".insertsomelink").children().click(function () {
+        var contentbox = $(".publish textarea");
+        if ($(this).index() === 0) {
+            contentbox.val(contentbox.val() + "[video]视频链接#sp#正文内容[/video]");
+        } else if ($(this).index() === 1) {
+            contentbox.val(contentbox.val() + "[bilibili]外链地址#sp#正文内容[/bilibili]");
+        }
+    });
 });
 
 function fastcomment(id, content) {
@@ -160,7 +168,8 @@ function login() {
                 $(".error_msg").text("");
                 window.location.reload()
             }
-            $(".login-submit").text("提交!");
+            $(login_submit).text("提交!");
+            $(login_submit).attr('disabled', false);
         },
         error: function () {
         }
@@ -207,7 +216,8 @@ function publish() {
             } else {
                 window.location.reload()
             }
-            $(".publish-submit").text("发射!");
+            $(publish_submit).text("发射!");
+            $(publish_submit).attr('disabled', false);
         },
         error: function () {
         }
@@ -253,7 +263,8 @@ function comment() {
             } else {
                 window.location.reload()
             }
-            $(".comment-submit").text("回复!");
+            $(comment_submit).text("回复!");
+            $(comment_submit).attr('disabled', false);
         },
         error: function () {
         }
@@ -352,6 +363,7 @@ function register() {
                 window.location.reload()
             }
             $(register_submit).text("提交!");
+            $(register_submit).attr('disabled', false);
         },
         error: function () {
         }
@@ -465,6 +477,7 @@ function update() {
     formData.append("image", image);
     formData.append("threadid", threadid);
 
+    $(update_submit).attr('disabled', true);
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -481,7 +494,8 @@ function update() {
             } else {
                 window.location.reload()
             }
-            $(".update-submit").text("提交!");
+            $(update_submit).text("提交!");
+            $(update_submit).attr('disabled', false);
         },
         error: function () {
         }
