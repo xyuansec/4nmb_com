@@ -114,7 +114,7 @@ body {
 }
 
 @media (max-width: 1000px) {
-    .dplayer {
+    .dplayer, iframe {
         height: 200px !important;
     }
 
