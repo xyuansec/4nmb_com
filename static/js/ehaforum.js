@@ -51,7 +51,7 @@ $(document).ready(function () {
         if ($(this).index() === 0) {
             contentbox.val(contentbox.val() + "[video]视频链接#sp#正文内容[/video]");
         } else if ($(this).index() === 1) {
-            contentbox.val(contentbox.val() + "[bilibili]外链地址#sp#正文内容[/bilibili]");
+            contentbox.val(contentbox.val() + "[bilibili]分享代码#sp#正文内容[/bilibili]");
         }
     });
 });
