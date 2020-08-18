@@ -49,7 +49,7 @@ $(document).ready(function () {
     $(".insertsomelink").children().click(function () {
         var contentbox = $(".publish textarea");
         if ($(this).index() === 0) {
-            contentbox.val(contentbox.val() + "[video]视频链接#sp#正文内容[/video]");
+            contentbox.val(contentbox.val() + "[video]视频链接#sp#正文内容[/video]\r\nps：需要封面请把链接改成 -> xxx.mp4|封面地址");
         } else if ($(this).index() === 1) {
             contentbox.val(contentbox.val() + "[bilibili]分享代码#sp#正文内容[/bilibili]");
         }
