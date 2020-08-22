@@ -79,7 +79,7 @@ function fastcomment(id, content) {
             if (result["code"] === 0) {
                 alertmsg(result["msg"])
             } else {
-                alertmsg("回复成功！")
+                alertmsg(result["msg"]);
                 window.location.reload()
             }
         },
@@ -214,7 +214,8 @@ function publish() {
             if (result["code"] === 0) {
                 $(".error_msg").text("（" + result["msg"] + "）")
             } else {
-                window.location.reload()
+                alertmsg(result["msg"])
+                window.location.reload();
             }
             $(publish_submit).text("发射!");
             $(publish_submit).attr('disabled', false);
@@ -261,6 +262,7 @@ function comment() {
             if (result["code"] === 0) {
                 $(".error_msg").text("（" + result["msg"] + "）")
             } else {
+                alertmsg(result["msg"])
                 window.location.reload()
             }
             $(comment_submit).text("回复!");
