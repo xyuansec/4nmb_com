@@ -225,6 +225,169 @@ function publish() {
     });
 }
 
+function pbmarket() {
+    let pbmarket_submit = $(".pbmarket-submit");
+    let error_msg = $(".error_msg");
+    $(pbmarket_submit).text("等待中...");
+    $(error_msg).text("");
+
+    var mktitle = $("#mktitle").val();
+    var mkcatgr = $("#mkcatgr").val();
+    var mkprice = $("#mkprice").val();
+    var mkstock = $("#mkstock").val();
+    var mkdescp = $("#mkdescp").val();
+    var mkhiden = $("#mkhiden").val();
+    var mkphoto = $("#mkphoto")[0].files[0];
+    var mkcontact = $("#mkcontact").val();
+
+    if (mktitle.length < 5 || mktitle.length > 60) {
+        alertmsg("商品标题请填写5到60个字符之间！");
+        $(pbmarket_submit).text("点击发布商品!");
+        return false;
+    }
+
+    if (mkdescp.length < 20) {
+        alertmsg("请认真填写商品的描述信息！");
+        $(pbmarket_submit).text("点击发布商品!");
+        return false;
+    }
+
+    if (mkhiden.length < 5) {
+        alertmsg("请认真填写商品的隐藏内容！");
+        $(pbmarket_submit).text("点击发布商品!");
+        return false;
+    }
+
+    var formData = new FormData();
+    formData.append("mktitle", mktitle);
+    formData.append("mkcatgr", mkcatgr);
+    formData.append("mkprice", mkprice);
+    formData.append("mkstock", mkstock);
+    formData.append("mkdescp", mkdescp);
+    formData.append("mkhiden", mkhiden);
+    formData.append("mkphoto", mkphoto);
+    formData.append("mkcontact", mkcontact);
+
+    $(pbmarket_submit).attr('disabled', true);
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/pbmarket2/",
+        data: formData,
+        processData: false,
+        contentType: false,
+        beforeSend: function (xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", $.cookie("csrftoken"))
+        },
+        success: function (result) {
+            if (result["code"] === 0) {
+                alertmsg(result["msg"]);
+                $(".error_msg").text("（" + result["msg"] + "）")
+            } else {
+                alertmsg(result["msg"]);
+                window.location.href = "/market"
+            }
+            $(pbmarket_submit).text("点击发布商品!");
+            $(pbmarket_submit).attr('disabled', false);
+        },
+        error: function () {
+        }
+    });
+}
+
+function edmarket(e) {
+    let edmarket_submit = $(".edmarket-submit");
+    var id = $(e).attr("data-id");
+    let error_msg = $(".error_msg");
+    $(edmarket_submit).text("等待中...");
+    $(error_msg).text("");
+
+    var mktitle = $("#mktitle").val();
+    var mkcatgr = $("#mkcatgr").val();
+    var mkprice = $("#mkprice").val();
+    var mkstock = $("#mkstock").val();
+    var mkdescp = $("#mkdescp").val();
+    var mkhiden = $("#mkhiden").val();
+    var mkphoto = $("#mkphoto")[0].files[0];
+    var mkcontact = $("#mkcontact").val();
+
+    if (mktitle.length < 5 || mktitle.length > 60) {
+        alertmsg("商品标题请填写5到60个字符之间！");
+        $(edmarket_submit).text("点击发布商品!");
+        return false;
+    }
+
+    if (mkdescp.length < 20) {
+        alertmsg("请认真填写商品的描述信息！");
+        $(edmarket_submit).text("点击发布商品!");
+        return false;
+    }
+
+    if (mkhiden.length < 5) {
+        alertmsg("请认真填写商品的隐藏内容！");
+        $(edmarket_submit).text("点击发布商品!");
+        return false;
+    }
+
+    var formData = new FormData();
+    formData.append("mktitle", mktitle);
+    formData.append("mkcatgr", mkcatgr);
+    formData.append("mkprice", mkprice);
+    formData.append("mkstock", mkstock);
+    formData.append("mkdescp", mkdescp);
+    formData.append("mkhiden", mkhiden);
+    formData.append("mkphoto", mkphoto);
+    formData.append("mkcontact", mkcontact);
+
+    $(edmarket_submit).attr('disabled', true);
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/mkediter2/" + id,
+        data: formData,
+        processData: false,
+        contentType: false,
+        beforeSend: function (xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", $.cookie("csrftoken"))
+        },
+        success: function (result) {
+            if (result["code"] === 0) {
+                alertmsg(result["msg"]);
+                $(".error_msg").text("（" + result["msg"] + "）")
+            } else {
+                alertmsg(result["msg"]);
+                window.location.href = "/market/" + id
+            }
+            $(edmarket_submit).text("点击更新商品!");
+            $(edmarket_submit).attr('disabled', false);
+        },
+        error: function () {
+        }
+    });
+}
+
+function paymarket(e) {
+    var id = $(e).attr("data-id");
+    $(e).text("校验中...");
+    $(e).attr('disabled', true);
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/paymarket/" + id,
+        success: function (result) {
+            if (result["code"] === 0) {
+                alertmsg(result["msg"]);
+                $(".error_msg").text("（" + result["msg"] + "）")
+            } else {
+                alertmsg(result["msg"]);
+                window.location.reload();
+            }
+        },
+        error: function () {
+        }
+    });
+}
+
 function comment() {
     let comment_submit = $(".comment-submit");
     let error_msg = $(".error_msg");
