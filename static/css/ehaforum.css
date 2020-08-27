@@ -129,8 +129,11 @@ pre, textarea, blockquote {
 }
 
 .video-box {
-    width: 20%;
     float: left;
+    width: 20%;
+    box-sizing: border-box;
+    padding: 10px;
+    min-width: 150px;
 }
 
 .video-light {
@@ -139,7 +142,6 @@ pre, textarea, blockquote {
 
 .video-figure {
     position: relative;
-    margin-bottom: 15px;
     border-radius: 5px;
     overflow: hidden;
     opacity: .9;
@@ -153,6 +155,12 @@ pre, textarea, blockquote {
     font-size: 12px;
     line-height: 32px;
     background-color: rgba(0, 0, 0, .6);
+}
+
+.video-img-box {
+    width: 150px;
+    height: 210px;
+    background-color: darkgrey
 }
 
 .video-playlist {
@@ -187,14 +195,14 @@ pre, textarea, blockquote {
     border-radius: 10px;
     background-color: skyblue;
     background-image: -webkit-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.2) 25%,
-        transparent 25%,
-        transparent 50%,
-        rgba(255, 255, 255, 0.2) 50%,
-        rgba(255, 255, 255, 0.2) 75%,
-        transparent 75%,
-        transparent
+            45deg,
+            rgba(255, 255, 255, 0.2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.2) 75%,
+            transparent 75%,
+            transparent
     );
 }
 

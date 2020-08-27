@@ -53,48 +53,7 @@ body {
     border-color: #fff
 }
 
-@media (max-width: 576px) {
-    .carousel-item img {
-        height: 165px !important;
-    }
-}
-
-@media (min-width: 1200px) {
-    .navbar-expand-xl .navbar-nav {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        flex-direction: row;
-    }
-
-    .navbar-vertical.navbar-expand-xl {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        max-height: 100vh;
-        display: block;
-        max-width: 12.625rem;
-    }
-
-    .navbar-vertical.navbar-expand-xl + .content {
-        margin-left: 15.625rem;
-    }
-
-    .navbar-vertical.navbar-expand-xl + .content .navbar-top {
-        position: -webkit-sticky;
-        position: sticky;
-    }
-
-    .navbar.navbar-expand-xl:not(.navbar-vertical) .navbar-collapse {
-        overflow: visible;
-    }
-}
-
 @media (max-width: 1199px) {
-    .video-box {
-        width: 150px !important;
-        margin-left: 10px !important;
-    }
-
     .navbar-vertical {
         position: fixed;
         top: 0;
@@ -129,6 +88,42 @@ body {
 
     .page-group ul li:first-child, .page-group ul li:last-child {
         display: block;
+    }
+}
+
+@media (max-width: 990px) {
+    .video-box {
+        float: left;
+        width: 25%;
+        box-sizing: border-box;
+        padding: 10px;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 770px) {
+    .video-box {
+        float: left;
+        width: 33%;
+        box-sizing: border-box;
+        padding: 10px;
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item img {
+        height: 165px !important;
+    }
+}
+
+@media (max-width: 532px) {
+    .video-box {
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+        padding: 10px;
+        min-width: 150px;
     }
 }
 
@@ -435,6 +430,36 @@ body {
         -webkit-box-flex: 0;
         flex: 0 0 17.5rem;
         max-width: 17.5rem
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar-expand-xl .navbar-nav {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+    }
+
+    .navbar-vertical.navbar-expand-xl {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        max-height: 100vh;
+        display: block;
+        max-width: 12.625rem;
+    }
+
+    .navbar-vertical.navbar-expand-xl + .content {
+        margin-left: 15.625rem;
+    }
+
+    .navbar-vertical.navbar-expand-xl + .content .navbar-top {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+
+    .navbar.navbar-expand-xl:not(.navbar-vertical) .navbar-collapse {
+        overflow: visible;
     }
 }
 
