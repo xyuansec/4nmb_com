@@ -64,11 +64,10 @@ body {
     .navbar-collapse {
         padding: 10px;
         display: none;
-        background-color: #edf2f9;
-        margin-top: -10px;
+        margin-top: -12px;
         margin-left: -10px;
-        border-right: 1px solid gainsboro;
-        height: 100% !important
+        height: 100% !important;
+        background-color: rgba(237, 242, 249, .96)
     }
 }
 

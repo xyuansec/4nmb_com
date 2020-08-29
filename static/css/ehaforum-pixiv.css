@@ -1,6 +1,6 @@
 .card {
     overflow: hidden;
-    z-index: 999999999999;
+    z-index: 1010;
 }
 
 .card-reveal .card-body {
