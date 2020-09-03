@@ -1,6 +1,14 @@
-var currentpage = 0;
-
 $(document).ready(function () {
+    var audios = document.getElementsByTagName("audio");
+    function pauseAll() {
+        var self = this;
+        [].forEach.call(audios, function (i) {
+            i !== self && i.pause();
+        })
+    }
+    [].forEach.call(audios, function (i) {
+        i.addEventListener("play", pauseAll.bind(i));
+    })
     if ($(window).width() > 1199 && localStorage.getItem("nav_resize") === "true") {
         switchnav();
     }
@@ -51,6 +59,8 @@ $(document).ready(function () {
         if ($(this).index() === 0) {
             contentbox.val(contentbox.val() + "[video]视频链接#sp#正文内容[/video]\r\nps：需要封面请把链接改成 -> xxx.mp4|封面地址");
         } else if ($(this).index() === 1) {
+            contentbox.val(contentbox.val() + "[audio]音乐链接#sp#正文内容[/audio]");
+        } else if ($(this).index() === 2) {
             contentbox.val(contentbox.val() + "[bilibili]分享代码#sp#正文内容[/bilibili]");
         }
     });
