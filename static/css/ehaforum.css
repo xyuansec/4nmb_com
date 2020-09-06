@@ -213,3 +213,7 @@ pre, textarea, blockquote {
     background: #ededed;
     border-radius: 10px;
 }
+
+.page-item:first-child, .page-item:last-child {
+    white-space: nowrap;
+}
