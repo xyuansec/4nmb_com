@@ -1,27 +1,18 @@
 ins.play-gif {
-    box-sizing: border-box;
     position: absolute;
-    top: 50%;
-    margin-top: -20px;
-    left: 50%;
-    margin-left: -20px;
-    min-height: 40px;
-    min-width: 40px;
-    text-align: center;
-    background: #222;
-    line-height: 34px;
-    font-size: 14px;
-    text-transform: uppercase;
+    padding: 0 8px;
+    right: 8px;
+    bottom: 8px;
     color: #fff;
-    border-radius: 50%;
-    opacity: .9;
-    border: 3px solid #fff;
     cursor: pointer;
+    min-width: 28px;
+    text-align: center;
     text-decoration: none;
-}
-
-ins.play-gif:hover {
-    opacity: .5;
+    font-size: 14px;
+    line-height: 25px;
+    border-radius: 2px;
+    border: 1px solid #999;
+    background: rgba(0,0,0,.5);
 }
 
 .gifplayer-wrapper {

@@ -37,8 +37,7 @@
         },
 
         addControl: function () {
-            this.playElement = $("<ins class='play-gif'>" + this.options.label + "</ins>");
-            this.playElement.css('left', this.previewElement.width() / 2 + this.playElement.width() / 2);
+            this.playElement = $("<ins class='play-gif'>动态</ins>");
             this.wrapper.append(this.playElement);
         },
 
@@ -78,11 +77,12 @@
             var gifSrc = this.getGifSrc();
             var gifWidth = this.previewElement.width();
             var gifHeight = this.previewElement.height();
-            this.gifElement = $("<img src='" + gifSrc + "' width='" + gifWidth + "' height=' " + gifHeight + " '/>");
+            this.gifElement = $("<img src='" + gifSrc + "' width='100%' height='auto'/>");
             var gp = this;
             this.gifElement.load(function () {
                 gp.gifLoaded = true;
                 gp.resetEvents();
+                $(".gifplayer-wrapper").css("width", "auto");
                 $(this).css('cursor', 'pointer');
                 $(this).css('top', '0');
                 $(this).css('left', '0');
@@ -91,6 +91,7 @@
                 gp.spinnerElement.hide();
 
                 $(this).click(function (e) {
+                    $(".gifplayer-wrapper").css("width", "200px");
                     $(this).remove();
                     gp.previewElement.show();
                     gp.playElement.show();
