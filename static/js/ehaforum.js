@@ -108,6 +108,7 @@ function switchnav() {
         if ($(window).width() <= 1199) {
             $(nav_collapse).removeClass("navicon-show");
         } else {
+            $(".navbar-card").css("right","-12px");
             $(nav_collapse).removeClass("navicon-hide");
             $(".pr-lg-2.mb-3.col-lg-8").css("z-index", "0");
         }
@@ -119,6 +120,7 @@ function switchnav() {
         if ($(window).width() <= 1199) {
             $(nav_collapse).addClass("navicon-show");
         } else {
+            $(".navbar-card").css("right","0");
             $(nav_collapse).addClass("navicon-hide");
             $(".pr-lg-2.mb-3.col-lg-8").css("z-index", "1027");
         }
