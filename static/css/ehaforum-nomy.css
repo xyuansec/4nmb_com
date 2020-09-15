@@ -54,6 +54,14 @@ body {
 }
 
 @media (max-width: 1199px) {
+    .navbar-card {
+        right: 0 !important;
+    }
+
+    .navbar-card2 {
+        right: 10px !important;
+    }
+
     .navbar-vertical {
         position: fixed;
         top: 0;
@@ -62,12 +70,9 @@ body {
     }
 
     .navbar-collapse {
-        padding: 10px;
         display: none;
         margin-top: -12px;
-        margin-left: -10px;
         height: 100% !important;
-        background-color: rgba(237, 242, 249, .96)
     }
 }
 
