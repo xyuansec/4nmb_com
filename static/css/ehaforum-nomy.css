@@ -54,8 +54,13 @@ body {
 }
 
 @media (max-width: 1199px) {
+    .navbar-nav{
+        padding-bottom: 0 !important;
+    }
+
     .navbar-card {
         right: 0 !important;
+        background-color: #fff !important;
     }
 
     .navbar-card2 {
