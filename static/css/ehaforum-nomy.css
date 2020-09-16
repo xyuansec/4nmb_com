@@ -54,17 +54,20 @@ body {
 }
 
 @media (max-width: 1199px) {
-    .navbar-nav{
+    .navbar-nav {
         padding-bottom: 0 !important;
     }
 
     .navbar-card {
         right: 0 !important;
-        background-color: #fff !important;
     }
 
     .navbar-card2 {
         right: 10px !important;
+    }
+
+    .nav-item.card.mt-3 {
+        margin-top: 0 !important;
     }
 
     .navbar-vertical {
