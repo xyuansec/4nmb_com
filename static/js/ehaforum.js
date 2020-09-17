@@ -22,8 +22,8 @@ $(document).ready(function () {
         if ($(window).scrollTop() > (top + height)) {
             $(".fixed-ad").css("position", "fixed");
             $(".fixed-ad").css("top", "72px");
-            $(".fixed-ad .card-body").css("padding-left", "12px !important");
-            $(".fixed-ad .card-body").css("padding-right", "12px !important");
+            $(".fixed-ad .card-body").css("padding-left", "12px");
+            $(".fixed-ad .card-body").css("padding-right", "12px");
         } else {
             $(".fixed-ad").css("position", "static");
             $(".fixed-ad").css("top", "0");
