@@ -1,5 +1,7 @@
 $(document).ready(function () {
     var audios = document.getElementsByTagName("audio");
+    var top = document.getElementById("top-view").offsetTop;
+    var height = document.getElementById("top-view").offsetHeight;
     function pauseAll() {
         var self = this;
         [].forEach.call(audios, function (i) {
@@ -17,6 +19,15 @@ $(document).ready(function () {
     });
     $("#gototop").hide();
     $(window).scroll(function () {
+        if ($(window).scrollTop() > (top + height)) {
+            $(".fixed-ad").css("position", "fixed");
+            $(".fixed-ad").css("top", "72px");
+            $(".fixed-ad .card-body").css("padding-left", "12px");
+            $(".fixed-ad .card-body").css("padding-right", "12px");
+        } else {
+            $(".fixed-ad").css("position", "static");
+            $(".fixed-ad").css("top", "0");
+        }
         if ($(window).scrollTop() > 300) {
             $("#gototop").fadeIn("slow");
         } else {
