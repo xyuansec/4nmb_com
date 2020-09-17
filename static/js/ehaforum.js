@@ -1,7 +1,11 @@
 $(document).ready(function () {
+    var top = 0;
+    var height = 0;
     var audios = document.getElementsByTagName("audio");
-    var top = document.getElementById("top-view").offsetTop;
-    var height = document.getElementById("top-view").offsetHeight;
+    if (document.getElementById("top-view") !== null) {
+        top = document.getElementById("top-view").offsetTop;
+        height = document.getElementById("top-view").offsetHeight;
+    }
     function pauseAll() {
         var self = this;
         [].forEach.call(audios, function (i) {
@@ -19,7 +23,7 @@ $(document).ready(function () {
     });
     $("#gototop").hide();
     $(window).scroll(function () {
-        if ($(window).scrollTop() > (top + height)) {
+        if ((top !== 0 || height !== 0) && ($(window).scrollTop() > (top + height))) {
             $(".fixed-ad").css("position", "fixed");
             $(".fixed-ad").css("top", "72px");
             $(".fixed-ad .card-body").css("padding-left", "12px");
