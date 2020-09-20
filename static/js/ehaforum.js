@@ -137,10 +137,10 @@ function switchnav() {
         } else {
             $(".navbar-card").css("right","0");
             $(nav_collapse).addClass("navicon-hide");
-            $(".pr-lg-2.mb-3.col-lg-8").css("z-index", "1027");
+            $(".pr-lg-2.mb-3.col-lg-8").css("z-index", "1017");
         }
         $(content_box).removeClass("content");
-        $(navbar_vertical).css("z-index", "1026")
+        $(navbar_vertical).css("z-index", "1029")
     }
 }
 
