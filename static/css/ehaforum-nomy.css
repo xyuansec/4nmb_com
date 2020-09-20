@@ -6,7 +6,7 @@ body {
     line-height: 1.5;
     color: #5e6e82;
     text-align: left;
-    background-color: #edf2f9;
+    background-color: #edf2f9 !important;
 }
 
 .card {
