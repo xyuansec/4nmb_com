@@ -124,7 +124,7 @@ function switchnav() {
             $(nav_collapse).removeClass("navicon-show");
         } else {
             $(".navbar-card").css("right","-12px");
-            $(nav_collapse).removeClass("navicon-hide");
+            $(nav_collapse).css({"cssText": "display:flex!important"})
             $(".pr-lg-2.mb-3.col-lg-8").css("z-index", "0");
         }
         $(content_box).addClass("content");
@@ -136,7 +136,7 @@ function switchnav() {
             $(nav_collapse).addClass("navicon-show");
         } else {
             $(".navbar-card").css("right","0");
-            $(nav_collapse).addClass("navicon-hide");
+            $(nav_collapse).css({"cssText": "display:none!important"})
             $(".pr-lg-2.mb-3.col-lg-8").css("z-index", "1017");
         }
         $(content_box).removeClass("content");
