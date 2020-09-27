@@ -30,9 +30,8 @@ pre, span, i, th, td, ::placeholder {
     color: #9da9bb !important;
 }
 
-.card {
-    background-color: #0e1c2f !important;
-    border: 0 solid #061325 !important;
+.bg-200 {
+    background-color: #061325 !important;
 }
 
 .media-night {
@@ -60,6 +59,11 @@ pre, span, i, th, td, ::placeholder {
     background-color: #0e1c2f !important;
 }
 
+.modal-content {
+    color: #9da9bb !important;
+    background-color: #132640 !important;
+}
+
 .list-group-item {
     background-color: #0e1c2f !important;
     border: 0 solid #061325 !important;
@@ -82,6 +86,11 @@ pre, span, i, th, td, ::placeholder {
     border-color: #132238 !important;
     color: #2c7be5 !important;
     box-shadow: 0 0 0 1px rgba(0, 8, 19, .3), 0 2px 5px 0 rgba(0, 13, 33, .5), 0 1px 1.5px 0 rgba(0, 8, 1, .48), 0 1px 2px 0 rgba(0, 8, 1, .4) !important;
+}
+
+.card, .bg-white, .chat-contact {
+    background-color: #0e1c2f !important;
+    border: 0 solid #061325 !important;
 }
 
 .navbar-glass, .dropdown-menu-card {
