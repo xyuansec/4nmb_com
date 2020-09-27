@@ -59,6 +59,10 @@ body {
         display: none !important;
     }
 
+    .online-num {
+        font-size: 0.5rem !important;
+    }
+
     .navbar-nav {
         padding-bottom: 0 !important;
     }
