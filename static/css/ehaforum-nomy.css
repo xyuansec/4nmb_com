@@ -56,7 +56,7 @@ body {
 
 @media (max-width: 1199px) {
     .ad-mobile{
-        display: none !important;
+        position: static !important;
     }
 
     .online-num {
