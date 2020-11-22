@@ -23,7 +23,7 @@ $(document).ready(function () {
     });
     $("#gototop").hide();
     $(window).scroll(function () {
-        if ((top !== 0 || height !== 0) && ($(window).scrollTop() > (top + height))) {
+        if ((top !== 0 || height !== 0) && ($(window).scrollTop() > (top))) {
             $(".fixed-ad").css("position", "sticky");
             $(".fixed-ad").css("top", "72px");
             $(".fixed-ad .card-body").css("padding-left", "12px");
