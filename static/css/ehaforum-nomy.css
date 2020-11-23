@@ -22,7 +22,7 @@ body {
 
 .card-footer {
     border: 0;
-    background-color: #f9fafd!important;
+    background-color: #f9fafd !important;
 }
 
 .navbar-glass {
@@ -55,7 +55,7 @@ body {
 }
 
 @media (max-width: 1199px) {
-    .ad-mobile{
+    .ad-mobile {
         position: static !important;
     }
 
@@ -113,6 +113,10 @@ body {
 
     .page-group ul li:first-child, .page-group ul li:last-child {
         display: block;
+    }
+
+    .siderbar {
+        display: block !important;
     }
 }
 

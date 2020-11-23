@@ -12,7 +12,7 @@ ins.play-gif {
     line-height: 25px;
     border-radius: 2px;
     border: 1px solid #999;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
 }
 
 .gifplayer-wrapper {
