@@ -236,3 +236,7 @@ pre, textarea, blockquote {
     border-radius: 4px;
     background-color: rgba(116, 129, 148, .3)
 }
+
+.article-list img {
+    max-width: 100%;
+}
