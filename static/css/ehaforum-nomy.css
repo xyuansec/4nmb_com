@@ -12,7 +12,7 @@ body {
 .card {
     border: 0;
     border-radius: 5px;
-    box-shadow: 0 7px 14px 0 rgba(59, 65, 94, .1), 0 3px 6px 0 rgba(0, 0, 0, .07);
+    /* box-shadow: 0 7px 14px 0 rgba(59, 65, 94, .1), 0 3px 6px 0 rgba(0, 0, 0, .07); */
 }
 
 .card-header {
@@ -498,6 +498,10 @@ body {
         flex: 0 0 21.88rem;
         max-width: 21.88rem
     }
+    
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1480px;
+    }
 }
 
 .border-300 {
@@ -516,9 +520,9 @@ body {
 }
 
 .notification:not(.notification-flush) {
-    border: 1px solid #f9fafd;
+    /* border: 1px solid #f9fafd; */
     background-color: #fff;
-    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    /* box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075); */
     border-radius: .375rem;
     padding: 1rem
 }
