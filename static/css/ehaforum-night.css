@@ -55,7 +55,6 @@ pre, span, i, th, td, ::placeholder {
 .notification {
     border: none !important;
     color: #9da9bb !important;
-    border-bottom: 1px solid rgba(163, 203, 255, .16) !important;
     background-color: #0e1c2f !important;
 }
 
@@ -109,4 +108,26 @@ pre, span, i, th, td, ::placeholder {
 
 .thread-list h4 {
     color: #9da9bb !important;
+}
+
+.nav-link, .nav-item, .navbar-card {
+    background-color: transparent !important
+}
+
+.navbar-card2::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+    height: 7px;
+    background-color: transparent
+}
+
+.navbar-card2::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(116, 129, 148, .3)
+}
+
+@media (max-width: 1000px) {
+    .navbar-card {
+        background-color: #132238 !important;
+    }
 }

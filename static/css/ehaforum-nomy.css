@@ -71,10 +71,6 @@ body {
         right: 0 !important;
     }
 
-    .navbar-card2 {
-        right: 10px !important;
-    }
-
     .nav-item.card.mt-3 {
         margin-top: 0 !important;
     }
@@ -117,6 +113,10 @@ body {
 
     .siderbar {
         display: block !important;
+    }
+
+    .nav-link, .nav-item {
+        background-color: #edf2f9 !important;
     }
 }
 
@@ -498,7 +498,7 @@ body {
         flex: 0 0 21.88rem;
         max-width: 21.88rem
     }
-    
+
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 1480px;
     }

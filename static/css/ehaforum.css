@@ -220,3 +220,19 @@ pre, textarea, blockquote {
 .page-item:first-child, .page-item:last-child {
     white-space: nowrap;
 }
+
+.nav-link, .nav-item {
+    background-color: transparent !important
+}
+
+.navbar-card2::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+    height: 7px;
+    background-color: transparent
+}
+
+.navbar-card2::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(116, 129, 148, .3)
+}
