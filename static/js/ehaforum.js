@@ -78,6 +78,8 @@ $(document).ready(function () {
         } else if ($(this).index() === 1) {
             contentbox.val(contentbox.val() + "[audio]音乐链接#sp#正文内容[/audio]");
         } else if ($(this).index() === 2) {
+            contentbox.val(contentbox.val() + "[markdown]文章标题#sp#正文内容[/markdown]");
+        } else if ($(this).index() === 3) {
             contentbox.val(contentbox.val() + "[bilibili]分享代码#sp#正文内容[/bilibili]");
         }
     });
