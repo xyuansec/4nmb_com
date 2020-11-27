@@ -216,7 +216,7 @@ function publish() {
     var category = $(".publish-category").val();
     var rewardnb = $(".publish-rewardnb").val();
 
-    if (content.length < 5 || content.length > 5000) {
+    if (content.length < 5 || content.length > 50000) {
         $(error_msg).text("（确保内容至少6个字符！）");
         $(publish_submit).text("发射!");
         return false;
@@ -660,7 +660,7 @@ function update() {
     var image = $(".update-image")[0].files[0];
     var threadid = $(update_submit).attr("data-threadid");
 
-    if (content.length < 5 || content.length > 5000) {
+    if (content.length < 5 || content.length > 50000) {
         $(error_msg).text("（确保内容至少6个字符！）");
         $(update_submit).text("提交!");
         return false;
