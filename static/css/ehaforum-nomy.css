@@ -92,6 +92,7 @@ body {
 @media (max-width: 1000px) {
     .dplayer, iframe, .bilibili-ha {
         height: 200px !important;
+        padding-bottom: 7px;
     }
 
     .bilibili-ld {
