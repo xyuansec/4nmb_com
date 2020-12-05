@@ -23,8 +23,8 @@ pre, textarea, blockquote {
     position: fixed;
     right: 50px;
     bottom: 50px;
+    opacity: 50%;
     z-index: 9999;
-    opacity: 60%;
     background: url(https://cdn.jsdelivr.net/gh/xyuansec/4nmb_com@master/static/img/arrow.png) no-repeat left top;
 }
 

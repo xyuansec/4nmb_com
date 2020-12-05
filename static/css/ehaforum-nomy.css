@@ -142,6 +142,11 @@ body {
 }
 
 @media (max-width: 576px) {
+    #gototop {
+        right: 20px;
+        bottom: 40px;
+    }
+
     .carousel-item img {
         height: 165px !important;
     }
