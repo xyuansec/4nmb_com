@@ -233,6 +233,48 @@ function signpoint() {
     })
 }
 
+function setniminswh(e) {
+    let niminflag = $(e).attr("data-niminflag");
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        url: "/setniminswh/" + niminflag,
+        success: function (result) {
+            var button = $(e).find(".uk-switch-button");
+            if ($(button).hasClass("on")) {
+                $(e).attr("data-niminflag", 1);
+                $(button).removeClass("on");
+            } else {
+                $(e).attr("data-niminflag", 0);
+                $(button).addClass("on");
+            }
+            toastr.info(result["msg"])
+        }, error: function () {
+        }
+    })
+}
+
+function setrecvemail(e) {
+    let recvflag = $(e).attr("data-recvflag");
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        url: "/setrecvemail/" + recvflag,
+        success: function (result) {
+            var button = $(e).find(".uk-switch-button");
+            if ($(button).hasClass("on")) {
+                $(e).attr("data-recvflag", 1);
+                $(button).removeClass("on");
+            } else {
+                $(e).attr("data-recvflag", 0);
+                $(button).addClass("on");
+            }
+            toastr.info(result["msg"])
+        }, error: function () {
+        }
+    })
+}
+
 function fastcomment(id, content) {
     if (content.length < 3 || content.length > 50000) {
         toastr.error("提示信息", "内容少于3个字符，或者超出范围！");

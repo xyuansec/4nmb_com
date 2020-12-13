@@ -11001,3 +11001,46 @@ textarea {
     background: #ededed;
     border-radius: 10px;
 }
+
+.btn-night-mode .uk-switch-button {
+    background-color: rgba(0, 0, 0, 0.09);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 500px;
+    bottom: 0;
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: .2s;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.07);
+}
+
+.btn-night-mode .btn-night-mode-switch {
+    display: inline-block;
+    height: 18px;
+    width: 37px;
+    top: 35%;
+    right: 13px;
+    position: absolute;
+}
+
+.btn-night-mode .uk-switch-button:before {
+    content: '';
+    background-color: #a9a9a9;
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    left: 0;
+    bottom: -1px;
+    border-radius: 50%;
+    transition-property: transform, box-shadow;
+    transition-duration: .2s;
+}
+
+.btn-night-mode .uk-switch-button.on:before {
+    transform: scale(1.3);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.22);
+    transform: translateX(17px);
+    background: #62d76b;
+}
