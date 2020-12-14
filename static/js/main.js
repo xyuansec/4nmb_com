@@ -254,6 +254,27 @@ function setniminswh(e) {
     })
 }
 
+function setlocation(e) {
+    let localflag = $(e).attr("data-localflag");
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        url: "/setlocation/" + localflag,
+        success: function (result) {
+            var button = $(e).find(".uk-switch-button");
+            if ($(button).hasClass("on")) {
+                $(e).attr("data-localflag", 1);
+                $(button).removeClass("on");
+            } else {
+                $(e).attr("data-localflag", 0);
+                $(button).addClass("on");
+            }
+            toastr.info(result["msg"])
+        }, error: function () {
+        }
+    })
+}
+
 function setrecvemail(e) {
     let recvflag = $(e).attr("data-recvflag");
     $.ajax({
