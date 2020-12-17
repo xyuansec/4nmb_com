@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     $("#uploadVideo").click(function () {
         var textarea = $(".OwO-textarea");
-        textarea.val(textarea.val() + "[video]在此输入内容|在此输入封面!!!在此输入链接[/video]")
+        textarea.val(textarea.val() + "[video]在此输入内容!!!在此输入链接|在此输入封面[/video]")
     });
     $("#uploadMp3").click(function () {
         var textarea = $(".OwO-textarea");
@@ -37,6 +37,10 @@ $(document).ready(function () {
     $("#uploadBiliBili").click(function () {
         var textarea = $(".OwO-textarea");
         textarea.val(textarea.val() + "[bilibili]在此输入内容!!!在此输入链接[/bilibili]")
+    });
+    $("#insertMarkdown").click(function () {
+        var textarea = $(".OwO-textarea");
+        textarea.val(textarea.val() + "[markdown]在此输入标题!!!在此输入Markdown[/markdown]")
     });
     toastr.options.positionClass = "toast-top-center";
 
