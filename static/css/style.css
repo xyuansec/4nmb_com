@@ -11044,3 +11044,11 @@ textarea {
     transform: translateX(17px);
     background: #62d76b;
 }
+
+.post-index.post-detail pre, .post-comments.post-detail pre {
+    -webkit-line-clamp: unset;
+}
+
+.post-index.post-detail .fullsizeimg {
+    max-height: none;
+}
