@@ -30,6 +30,10 @@ $(document).ready(function () {
         var textarea = $(".OwO-textarea");
         textarea.val(textarea.val() + "[video]在此输入内容!!!在此输入链接|在此输入封面[/video]")
     });
+    $('#uploadVideoReal').on('change', function (e) {
+        var name = e.currentTarget.files[0].name;
+        $("#uploadVideoName").text(name);
+    });
     $("#uploadMp3").click(function () {
         var textarea = $(".OwO-textarea");
         textarea.val(textarea.val() + "[mp3]在此输入内容!!!在此输入链接[/mp3]")
@@ -75,9 +79,20 @@ function publish() {
     var content = $("div.post-new textarea").val();
     var category = $("div.post-new #category").val();
     var uploadfile = $("div.post-new #uploadFile")[0].files[0];
+    var uploadvideofile = $("div.post-new #uploadVideoReal")[0].files[0];
 
     if (content.length < 3 || content.length > 50000) {
         toastr.error("提示信息", "内容少于3个字符，或者超出范围！");
+        $(publish_submit).text("发送!");
+        return false
+    }
+    if (uploadfile !== undefined && uploadfile.size > 4194304) {
+        toastr.error("提示信息", "图片文件不能超过4m！");
+        $(publish_submit).text("发送!");
+        return false
+    }
+    if (uploadvideofile !== undefined && uploadvideofile.size > 5242880) {
+        toastr.error("提示信息", "视频文件不能超过5m！");
         $(publish_submit).text("发送!");
         return false
     }
@@ -86,6 +101,7 @@ function publish() {
     formData.append("content", content);
     formData.append("category", category);
     formData.append("uploadfile", uploadfile);
+    formData.append("uploadvideofile", uploadvideofile);
     $(publish_submit).attr('disabled', true);
     $.ajax({
         type: "POST",
