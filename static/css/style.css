@@ -6771,7 +6771,7 @@ header .opts_icon_link:hover {
     border-radius: 100px;
     border-radius: 6px;
     cursor: pointer;
-    width: 30%;
+    width: 28%;
     transition: all .1s linear;
     padding: 5px 8px
 }
