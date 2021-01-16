@@ -82,7 +82,7 @@
             this.gifElement.load(function () {
                 gp.gifLoaded = true;
                 gp.resetEvents();
-                $(".gifplayer-wrapper").css("width", "auto");
+                $(".gifplayer-wrapper").css("width", "100%");
                 $(this).css('cursor', 'pointer');
                 $(this).css('top', '0');
                 $(this).css('left', '0');
