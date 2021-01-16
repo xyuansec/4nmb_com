@@ -91,7 +91,6 @@
                 gp.spinnerElement.hide();
 
                 $(this).click(function (e) {
-                    $(".gifplayer-wrapper").css("width", "200px");
                     $(this).remove();
                     gp.previewElement.show();
                     gp.playElement.show();
