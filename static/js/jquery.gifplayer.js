@@ -25,7 +25,7 @@
 
         wrap: function () {
             this.wrapper = this.previewElement.wrap("<div class='gifplayer-wrapper'></div>").parent();
-            this.wrapper.css('width', this.previewElement.width());
+            this.wrapper.css('width', '100%');
             this.previewElement.addClass('gifplayer');
             this.previewElement.css('cursor', 'pointer');
         },
