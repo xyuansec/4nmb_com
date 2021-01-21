@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.imgLazyLoad();
-    
+
     $("body").append('<div id="backtotop"><a href="#"></a></div>');
     var c = 100;
     var d = 500;

@@ -1,43 +1,51 @@
-(function($){
-    $.extend($,{
-        imgLazyLoad:function(){
+(function ($) {
+    $.extend($, {
+        imgLazyLoad: function () {
             var timer,
                 len = $('img.lazyload').length;
+
             function getPos(node) {
                 var scrollx = document.documentElement.scrollLeft || document.body.scrollLeft,
                     scrollt = document.documentElement.scrollTop || document.body.scrollTop;
                 var pos = node.getBoundingClientRect();
-                return {top:pos.top + scrollt, right:pos.right + scrollx, bottom:pos.bottom + scrollt, left:pos.left + scrollx }
+                return {
+                    top: pos.top + scrollt,
+                    right: pos.right + scrollx,
+                    bottom: pos.bottom + scrollt,
+                    left: pos.left + scrollx
+                }
             }
-            function loading(){
+
+            function loading() {
                 timer && clearTimeout(timer);
-                timer = setTimeout(function(){
+                timer = setTimeout(function () {
                     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop,
-                        imgs=$('img.lazyload');
+                        imgs = $('img.lazyload');
                     screenHeight = document.documentElement.clientHeight;
-                    for(var i = 0;i < imgs.length;i++){
+                    for (var i = 0; i < imgs.length; i++) {
                         var pos = getPos(imgs[i]),
                             posT = pos.top,
                             posB = pos.bottom,
-                            screenTop = screenHeight+scrollTop;
-                        if((posT > scrollTop && posT <  screenTop) || (posB > scrollTop && posB < screenTop)){
+                            screenTop = screenHeight + scrollTop;
+                        if ((posT > scrollTop && posT < screenTop) || (posB > scrollTop && posB < screenTop)) {
                             imgs[i].src = imgs[i].getAttribute('data-img');
                             $(imgs[i]).removeClass('lazyload');
-                        }else{
+                        } else {
                             // new Image().src = imgs[i].getAttribute('data-img');
                         }
                     }
-                },100);
+                }, 100);
             }
-            if(!len) return;
+
+            if (!len) return;
             loading();
-            $(window).on('scroll resize',function(){
-                if(!$('img.lazyload').length){
+            $(window).on('scroll resize', function () {
+                if (!$('img.lazyload').length) {
                     return;
-                }else{
+                } else {
                     loading();
                 }
             })
         }
     })
-})($||Zepto||jQuery);
+})($ || Zepto || jQuery);
