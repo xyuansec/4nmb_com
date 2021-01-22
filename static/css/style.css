@@ -11213,7 +11213,10 @@ span.blog-post-info-tag {
     }
 }
 
-.post-description code {
-    white-space: pre-wrap;
-    word-wrap: break-word;
+.codehilite {
+    overflow-x: auto;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
 }
