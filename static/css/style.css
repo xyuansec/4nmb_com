@@ -11220,3 +11220,7 @@ span.blog-post-info-tag {
     background: #f8f8f8;
     border: 1px solid #e5e5e5;
 }
+
+.sl_right_user_info li {
+    list-style-type: none;
+}
