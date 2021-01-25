@@ -7040,7 +7040,8 @@ header .opts_icon_link:hover {
 
 .post-comment-text {
     position: relative;
-    margin-left: 15px
+    margin-left: 15px;
+    max-width: 82%
 }
 
 .post-comment-text-inner {
