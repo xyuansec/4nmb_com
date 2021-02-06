@@ -227,6 +227,28 @@ function comment() {
     })
 }
 
+function paymarket(e) {
+    let marketid = $(e).attr("data-id");
+    $(e).text("支付中...");
+    $(e).attr('disabled', true);
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        url: "/paymarket/" + marketid,
+        success: function (result) {
+            if (result["code"] === 0) {
+                toastr.error(result["msg"]);
+                $(e).text("立即购买");
+                $(e).attr('disabled', false);
+            } else {
+                toastr.info(result["msg"]);
+                window.location.reload();
+            }
+        }, error: function () {
+        }
+    })
+}
+
 function sendactive() {
     var sendactive = $("#sendactive");
     sendactive.unbind('click');
