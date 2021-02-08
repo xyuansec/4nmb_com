@@ -139,8 +139,8 @@ function good(e) {
             if (result["code"] === 0) {
                 toastr.error(result["msg"])
             } else {
-                let likenumb = $(e).find(".likenumb").text();
-                $(e).find(".likenumb").text((parseInt(likenumb) + 1) + "");
+                let likenumb = $(e).find(".likenumb-" + id).text();
+                $(e).find(".likenumb-" + id).text((parseInt(likenumb) + 1) + "");
                 toastr.info(result['msg']);
             }
         }, error: function () {
@@ -271,7 +271,8 @@ function signpoint() {
         dataType: "json",
         url: "/signpoint/",
         success: function (result) {
-            toastr.info(result["msg"])
+            toastr.info(result["msg"]);
+            window.location.reload();
         }, error: function () {
         }
     })
@@ -300,23 +301,50 @@ function setniminswh(e) {
 
 function setlocation(e) {
     let localflag = $(e).attr("data-localflag");
-    $.ajax({
-        type: "get",
-        dataType: "json",
-        url: "/setlocation/" + localflag,
-        success: function (result) {
-            var button = $(e).find(".uk-switch-button");
-            if ($(button).hasClass("on")) {
-                $(e).attr("data-localflag", 1);
-                $(button).removeClass("on");
-            } else {
-                $(e).attr("data-localflag", 0);
-                $(button).addClass("on");
+    if (localflag == 0) {
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: "/setlocation/0",
+            success: function (result) {
+                var button = $(e).find(".uk-switch-button");
+                if ($(button).hasClass("on")) {
+                    $(e).attr("data-localflag", 1);
+                    $(button).removeClass("on");
+                } else {
+                    $(e).attr("data-localflag", 0);
+                    $(button).addClass("on");
+                }
+                toastr.info(result["msg"])
+            }, error: function () {
             }
-            toastr.info(result["msg"])
-        }, error: function () {
-        }
-    })
+        })
+    } else {
+        toastr.info("获取位置中,请等待片刻...");
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (r) {
+            if (this.getStatus() === BMAP_STATUS_SUCCESS) {
+                $.ajax({
+                    type: "get",
+                    dataType: "json",
+                    url: "/setlocation/1?lng=" + r.point.lng + "&lat=" + r.point.lat,
+                    success: function (result) {
+                        var button = $(e).find(".uk-switch-button");
+                        if ($(button).hasClass("on")) {
+                            $(e).attr("data-localflag", 1);
+                            $(button).removeClass("on");
+                        } else {
+                            $(e).attr("data-localflag", 0);
+                            $(button).addClass("on");
+                        }
+                        toastr.info(result["msg"])
+                    }, error: function () {
+                    }
+                })
+            } else {
+            }
+        }, {enableHighAccuracy: true});
+    }
 }
 
 function setrecvemail(e) {
