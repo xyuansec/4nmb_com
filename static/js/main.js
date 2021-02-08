@@ -140,7 +140,7 @@ function good(e) {
                 toastr.error(result["msg"])
             } else {
                 let likenumb = $(e).find(".likenumb-" + id).text();
-                $(e).find(".likenumb-" + id).text((parseInt(likenumb) + 1) + "");
+                $(".likenumb-" + id).text((parseInt(likenumb) + 1) + "");
                 toastr.info(result['msg']);
             }
         }, error: function () {
