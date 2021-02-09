@@ -27,6 +27,11 @@ $(document).ready(function () {
         var path = getobjecturl(e.currentTarget.files[0]);
         $("#my_avator").attr("src", path);
     });
+    $('#userBackfile').on('change', function (e) {
+        var name = e.currentTarget.files[0].name;
+        var path = getobjecturl(e.currentTarget.files[0]);
+        $("#userBackreal").attr("src", path);
+    });
 
     $("#uploadVideo").click(function () {
         var textarea = $(".OwO-textarea");
@@ -291,6 +296,27 @@ function setniminswh(e) {
                 $(button).removeClass("on");
             } else {
                 $(e).attr("data-niminflag", 0);
+                $(button).addClass("on");
+            }
+            toastr.info(result["msg"])
+        }, error: function () {
+        }
+    })
+}
+
+function setbackswih(e) {
+    let niminflag = $(e).attr("data-backflag");
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        url: "/setbackswih/" + niminflag,
+        success: function (result) {
+            var button = $(e).find(".uk-switch-button");
+            if ($(button).hasClass("on")) {
+                $(e).attr("data-backflag", 1);
+                $(button).removeClass("on");
+            } else {
+                $(e).attr("data-backflag", 0);
                 $(button).addClass("on");
             }
             toastr.info(result["msg"])
