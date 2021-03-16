@@ -33,26 +33,6 @@ $(document).ready(function () {
         $("#userBackreal").attr("src", path);
     });
 
-    $("#uploadVideo").click(function () {
-        var textarea = $(".OwO-textarea");
-        textarea.val(textarea.val() + "[video]在此输入内容!!!在此输入链接|在此输入封面[/video]")
-    });
-    $('#uploadVideoReal').on('change', function (e) {
-        var name = e.currentTarget.files[0].name;
-        $("#uploadVideoName").text(name);
-    });
-    $("#uploadMp3").click(function () {
-        var textarea = $(".OwO-textarea");
-        textarea.val(textarea.val() + "[mp3]在此输入内容!!!在此输入链接[/mp3]")
-    });
-    $("#uploadBiliBili").click(function () {
-        var textarea = $(".OwO-textarea");
-        textarea.val(textarea.val() + "[bilibili]在此输入内容!!!在此输入链接[/bilibili]")
-    });
-    $("#insertMarkdown").click(function () {
-        var textarea = $(".OwO-textarea");
-        textarea.val(textarea.val() + "[markdown]在此输入标题!!!在此输入Markdown[/markdown]")
-    });
     toastr.options.positionClass = "toast-top-center";
 
     $(".fastcomment").keypress(function (e) {
@@ -79,10 +59,37 @@ function getobjecturl(file) {
     return url;
 }
 
+function change_post(type) {
+    var ptype = $("#post-type");
+    var oinput = $("#other-input");
+    oinput.show();
+    if (type === 0) {
+        oinput.hide();
+        ptype.val(0);
+    } else if (type === 1) {
+        oinput.find("input").attr("placeholder", "请输入MP3外链");
+        ptype.val(1);
+    } else if (type === 2) {
+        oinput.find("input").attr("placeholder", "请输入b站的iframe分享代码");
+        ptype.val(2);
+    } else if (type === 3) {
+        oinput.hide();
+        ptype.val(3);
+    } else if (type === 4) {
+        oinput.find("input").attr("placeholder", "请输入MP4或M3U8视频外链");
+        ptype.val(4);
+    } else if (type === 5) {
+        oinput.find("input").attr("placeholder", "已切换markdown模式，请输入文章标题");
+        ptype.val(5);
+    }
+}
+
 function publish() {
     let publish_submit = $("#publish-submit");
     $(publish_submit).text("等待中...");
 
+    var postype = $("#post-type").val();
+    var hidtext = $("#post-hidden").val();
     var content = $("div.post-new textarea").val();
     var category = $("div.post-new #category").val();
     var uploadfile = $("div.post-new #uploadFile")[0].files[0];
@@ -106,6 +113,8 @@ function publish() {
 
     var formData = new FormData();
     formData.append("content", content);
+    formData.append("postype", postype);
+    formData.append("hidtext", hidtext);
     formData.append("category", category);
     formData.append("uploadfile", uploadfile);
     formData.append("uploadvideofile", uploadvideofile);
