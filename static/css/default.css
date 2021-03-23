@@ -45,7 +45,7 @@ span.linenos.special {
 
 /* Comment */
 .codehilite .err {
-    border: 1px solid #FF0000
+    /* border: 1px solid #FF0000 */
 }
 
 /* Error */
