@@ -11221,3 +11221,30 @@ span.blog-post-info-tag {
 .post-night .post-state {
     border: 0 !important;
 }
+
+.post-description table {
+	display: block;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: regular;
+	max-height: 800px;
+	border-collapse: collapse;
+	word-break: break-word;
+	margin-bottom: 10px
+}
+
+.post-description th {
+	margin: 0;
+	min-width: 50px;
+	padding: 8px 14px;
+	border-collapse: collapse;
+	border: 1px solid silver;
+	background-color: #fafafa
+}
+
+.post-description td {
+	margin: 0;
+	min-width: 50px;
+	padding: 8px 14px;
+	border-collapse: collapse;
+	border: 1px solid silver
+}
