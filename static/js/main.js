@@ -67,7 +67,7 @@ function change_post(type) {
         oinput.hide();
         ptype.val(0);
     } else if (type === 1) {
-        oinput.find("input").attr("placeholder", "请输入MP3外链");
+        oinput.find("input").attr("placeholder", "请输入要分享的音乐链接");
         ptype.val(1);
     } else if (type === 2) {
         oinput.find("input").attr("placeholder", "请输入b站的iframe分享代码");
