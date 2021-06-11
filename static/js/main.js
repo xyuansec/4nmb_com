@@ -47,41 +47,59 @@ $(document).ready(function () {
     });
 });
 
-function getobjecturl(file) {
-    var url = null;
-    if (window.createObjectURL != undefined) { // basic
-        url = window.createObjectURL(file);
-    } else if (window.URL != undefined) { // mozilla(firefox)
-        url = window.URL.createObjectURL(file);
-    } else if (window.webkitURL != undefined) { // webkit or chrome
-        url = window.webkitURL.createObjectURL(file);
-    }
-    return url;
+function good(e) {
+    var id = $(e).attr("data-id");
+    var type = $(e).attr("data-type");
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/good/" + type + "/" + id,
+        success: function (result) {
+            if (result["code"] === 0) {
+                toastr.error(result["msg"])
+            } else {
+                let likenumb = $(e).find(".likenumb-" + id).text();
+                $(".likenumb-" + id).text((parseInt(likenumb) + 1) + "");
+                toastr.info(result['msg']);
+            }
+        }, error: function () {
+        }
+    })
 }
 
-function change_post(type) {
-    var ptype = $("#post-type");
-    var oinput = $("#other-input");
-    oinput.show();
-    if (type === 0) {
-        oinput.hide();
-        ptype.val(0);
-    } else if (type === 1) {
-        oinput.find("input").attr("placeholder", "请输入要分享的音乐链接");
-        ptype.val(1);
-    } else if (type === 2) {
-        oinput.find("input").attr("placeholder", "请输入b站的iframe分享代码");
-        ptype.val(2);
-    } else if (type === 3) {
-        oinput.hide();
-        ptype.val(3);
-    } else if (type === 4) {
-        oinput.find("input").attr("placeholder", "请输入MP4或M3U8视频外链");
-        ptype.val(4);
-    } else if (type === 5) {
-        oinput.find("input").attr("placeholder", "已切换markdown模式，请输入文章标题");
-        ptype.val(5);
-    }
+function reply(e) {
+    let textarea = $("div.post-new textarea");
+    let temptextarea = $("div.post-new #temp-textarea");
+    let nickname = $(e).attr("data-author");
+    let commid = $(e).attr("data-commid");
+    $(textarea).attr("placeholder", "@" + nickname + " ");
+    $(temptextarea).attr("placeholder", "@" + nickname + " ");
+    $("#comment-parentid").val(commid)
+}
+
+function invite() {
+    var towho = $("#towho").val();
+    var formData = new FormData();
+    formData.append("towho", towho);
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/invite/",
+        data: formData,
+        processData: false,
+        contentType: false,
+        beforeSend: function (xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", $.cookie("csrftoken"))
+        }, success: function (result) {
+            if (result["code"] === 0) {
+                toastr.error(result["msg"]);
+            } else {
+                toastr.info(result["msg"]);
+                window.location.reload();
+            }
+        }, error: function () {
+        }
+    })
 }
 
 function publish() {
@@ -137,61 +155,6 @@ function publish() {
             }
             $(publish_submit).text("发送!");
             $(publish_submit).attr('disabled', false)
-        }, error: function () {
-        }
-    })
-}
-
-function good(e) {
-    var id = $(e).attr("data-id");
-    var type = $(e).attr("data-type");
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "/good/" + type + "/" + id,
-        success: function (result) {
-            if (result["code"] === 0) {
-                toastr.error(result["msg"])
-            } else {
-                let likenumb = $(e).find(".likenumb-" + id).text();
-                $(".likenumb-" + id).text((parseInt(likenumb) + 1) + "");
-                toastr.info(result['msg']);
-            }
-        }, error: function () {
-        }
-    })
-}
-
-function reply(e) {
-    let textarea = $("div.post-new textarea");
-    let temptextarea = $("div.post-new #temp-textarea");
-    let nickname = $(e).attr("data-author");
-    let commid = $(e).attr("data-commid");
-    $(textarea).attr("placeholder", "@" + nickname + " ");
-    $(temptextarea).attr("placeholder", "@" + nickname + " ");
-    $("#comment-parentid").val(commid)
-}
-
-function invite() {
-    var towho = $("#towho").val();
-    var formData = new FormData();
-    formData.append("towho", towho);
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "/invite/",
-        data: formData,
-        processData: false,
-        contentType: false,
-        beforeSend: function (xhr, settings) {
-            xhr.setRequestHeader("X-CSRFToken", $.cookie("csrftoken"))
-        }, success: function (result) {
-            if (result["code"] === 0) {
-                toastr.error(result["msg"]);
-            } else {
-                toastr.info(result["msg"]);
-                window.location.reload();
-            }
         }, error: function () {
         }
     })
@@ -279,56 +242,14 @@ function sendactive() {
     })
 }
 
-function signpoint() {
+function signpoint(e) {
     $.ajax({
         type: "get",
         dataType: "json",
         url: "/signpoint/",
         success: function (result) {
             toastr.info(result["msg"]);
-            window.location.reload();
-        }, error: function () {
-        }
-    })
-}
-
-function setniminswh(e) {
-    let niminflag = $(e).attr("data-niminflag");
-    $.ajax({
-        type: "get",
-        dataType: "json",
-        url: "/setniminswh/" + niminflag,
-        success: function (result) {
-            var button = $(e).find(".uk-switch-button");
-            if ($(button).hasClass("on")) {
-                $(e).attr("data-niminflag", 1);
-                $(button).removeClass("on");
-            } else {
-                $(e).attr("data-niminflag", 0);
-                $(button).addClass("on");
-            }
-            toastr.info(result["msg"])
-        }, error: function () {
-        }
-    })
-}
-
-function setbackswih(e) {
-    let niminflag = $(e).attr("data-backflag");
-    $.ajax({
-        type: "get",
-        dataType: "json",
-        url: "/setbackswih/" + niminflag,
-        success: function (result) {
-            var button = $(e).find(".uk-switch-button");
-            if ($(button).hasClass("on")) {
-                $(e).attr("data-backflag", 1);
-                $(button).removeClass("on");
-            } else {
-                $(e).attr("data-backflag", 0);
-                $(button).addClass("on");
-            }
-            toastr.info(result["msg"])
+            $(e).html("今日已签到！");
         }, error: function () {
         }
     })
@@ -401,6 +322,43 @@ function setrecvemail(e) {
         }, error: function () {
         }
     })
+}
+
+function change_post(type) {
+    var ptype = $("#post-type");
+    var oinput = $("#other-input");
+    oinput.show();
+    if (type === 0) {
+        oinput.hide();
+        ptype.val(0);
+    } else if (type === 1) {
+        oinput.find("input").attr("placeholder", "请输入要分享的音乐链接");
+        ptype.val(1);
+    } else if (type === 2) {
+        oinput.find("input").attr("placeholder", "请输入b站的iframe分享代码");
+        ptype.val(2);
+    } else if (type === 3) {
+        oinput.hide();
+        ptype.val(3);
+    } else if (type === 4) {
+        oinput.find("input").attr("placeholder", "请输入MP4或M3U8视频外链");
+        ptype.val(4);
+    } else if (type === 5) {
+        oinput.find("input").attr("placeholder", "已切换markdown模式，请输入文章标题");
+        ptype.val(5);
+    }
+}
+
+function getobjecturl(file) {
+    var url = null;
+    if (window.createObjectURL != undefined) { // basic
+        url = window.createObjectURL(file);
+    } else if (window.URL != undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file);
+    } else if (window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+    }
+    return url;
 }
 
 function fastcomment(id, content) {
