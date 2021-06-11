@@ -6356,8 +6356,10 @@ header .opts_icon_link:hover {
         visibility: visible
     }
 
-    header .head_search {
-        display: none
+    header .head_search input {
+        padding: 0 !important;
+        min-width: auto !important;
+        width: 90%;
     }
 
     header .header-innr {
