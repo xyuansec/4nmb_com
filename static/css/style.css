@@ -6357,9 +6357,13 @@ header .opts_icon_link:hover {
     }
 
     header .head_search input {
-        padding: 0 !important;
+        padding: 0 15px !important;
         min-width: auto !important;
-        width: 90%;
+        width: 75%;
+    }
+
+    header .head_search .s_icon.uil-search-alt {
+        display: none;
     }
 
     header .header-innr {
@@ -7249,22 +7253,6 @@ header .opts_icon_link:hover {
     border-radius: 100%;
     position: relative;
     bottom: -42px
-}
-
-.profile-details .profile-image a::before {
-    font-family: "unicons";
-    font-size: 19px;
-    content: '\e8be';
-    line-height: 27px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    background: whitesmoke;
-    width: 27px;
-    height: 27px;
-    border-radius: 100px;
-    border: 2px solid white
 }
 
 .profile-details .profile-image img {
