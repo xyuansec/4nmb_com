@@ -85,6 +85,10 @@ html body {
     .container-expand-left.container-small, .container-expand-right.container-small {
         max-width: calc(50% + (900px / 2) - 30px)
     }
+
+    .post-description iframe {
+        height: 360px !important;
+    }
 }
 
 @media (min-width: 960px) {
